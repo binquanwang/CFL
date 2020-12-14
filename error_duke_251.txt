@@ -1,0 +1,768 @@
+Namespace(batch_size=40, data='DUKE', debug=False, epochs=100, evaluate=False, exp_name='0001', gpu='0,1', height=384, iloss=1, lr=0.0001, margin=2, mm=0.1, momentum=0.9, net='PatchNetUn', num=2, ploss=2, pre_name='/home/wuzhi/wbq/PAUL/src/snapshot/MSMT17_PRE', print_freq=100, scale=5.0, seed=None, start_epoch=0, step=50, weight_decay=0.0001, width=128, workers=8)
+the class number of pretrained model is 4101
+0
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 45.64%
+CMC Scores first_match
+  top-1         65.75%
+  top-5         79.62%
+  top-10        83.66%
+  top-15        85.23%
+  top-20        86.71%
+DataParallel(
+  (module): PatchNetUn(
+    (backbone): ResNet(
+      (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+      (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      (layer1): Sequential(
+        (0): Bottleneck(
+          (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+          (downsample): Sequential(
+            (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): Bottleneck(
+          (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (2): Bottleneck(
+          (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+      )
+      (layer2): Sequential(
+        (0): Bottleneck(
+          (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+          (downsample): Sequential(
+            (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): Bottleneck(
+          (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (2): Bottleneck(
+          (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (3): Bottleneck(
+          (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+      )
+      (layer3): Sequential(
+        (0): Bottleneck(
+          (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+          (downsample): Sequential(
+            (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): Bottleneck(
+          (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (2): Bottleneck(
+          (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (3): Bottleneck(
+          (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (4): Bottleneck(
+          (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (5): Bottleneck(
+          (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+      )
+      (layer4): Sequential(
+        (0): Bottleneck(
+          (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+          (downsample): Sequential(
+            (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (2): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+      )
+      (avgpool): AvgPool2d(kernel_size=(7, 7), stride=1, padding=0)
+    )
+    (new): ModuleList(
+      (down): ModuleList(
+        (0): Sequential(
+          (0): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): Sequential(
+          (0): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): Sequential(
+          (0): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (3): Sequential(
+          (0): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (4): Sequential(
+          (0): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (5): Sequential(
+          (0): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (fc_list): ModuleList(
+        (0): Linear(in_features=256, out_features=4101, bias=True)
+        (1): Linear(in_features=256, out_features=4101, bias=True)
+        (2): Linear(in_features=256, out_features=4101, bias=True)
+        (3): Linear(in_features=256, out_features=4101, bias=True)
+        (4): Linear(in_features=256, out_features=4101, bias=True)
+        (5): Linear(in_features=256, out_features=4101, bias=True)
+      )
+      (embedding): ModuleList(
+        (0): Linear(in_features=256, out_features=128, bias=True)
+        (1): Linear(in_features=256, out_features=128, bias=True)
+        (2): Linear(in_features=256, out_features=128, bias=True)
+        (3): Linear(in_features=256, out_features=128, bias=True)
+        (4): Linear(in_features=256, out_features=128, bias=True)
+        (5): Linear(in_features=256, out_features=128, bias=True)
+      )
+    )
+    (patch_proposal): PatchGenerator(
+      (localization): Sequential(
+        (0): Conv2d(2048, 4096, kernel_size=(3, 3), stride=(1, 1))
+        (1): BatchNorm2d(4096, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace)
+        (3): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      )
+      (fc_loc): Sequential(
+        (0): Linear(in_features=4096, out_features=512, bias=True)
+        (1): ReLU(inplace)
+        (2): Linear(in_features=512, out_features=36, bias=True)
+      )
+    )
+  )
+)
+SGD (
+Parameter Group 0
+    dampening: 0
+    initial_lr: 0.0001
+    lr: 0.0001
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+
+Parameter Group 1
+    dampening: 0
+    initial_lr: 0.0001
+    lr: 0.0001
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+
+Parameter Group 2
+    dampening: 0
+    initial_lr: 0.0001
+    lr: 0.0001
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+
+Parameter Group 3
+    dampening: 0
+    initial_lr: 0
+    lr: 0.0
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+initialize the centers
+initialization done
+Epoch: [0][0/414]	Time 7.607 (7.607)	Data 0.916 (0.916)	pedal 2.7545 (2.7545)	ipfl 0.2951 (0.2951)
+Epoch: [0][100/414]	Time 1.107 (1.156)	Data 0.000 (0.009)	pedal 2.7099 (2.6136)	ipfl 0.2307 (0.2296)
+Epoch: [0][200/414]	Time 1.106 (1.135)	Data 0.000 (0.005)	pedal 2.6032 (2.5830)	ipfl 0.2660 (0.2175)
+Epoch: [0][300/414]	Time 1.136 (1.133)	Data 0.000 (0.003)	pedal 2.3711 (2.5497)	ipfl 0.1357 (0.2064)
+Epoch: [0][400/414]	Time 1.144 (1.134)	Data 0.000 (0.002)	pedal 2.3175 (2.5221)	ipfl 0.2139 (0.1963)
+1
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 48.48%
+CMC Scores first_match
+  top-1         67.24%
+  top-5         81.06%
+  top-10        85.05%
+  top-15        86.58%
+  top-20        87.57%
+Epoch: [1][0/414]	Time 2.259 (2.259)	Data 1.005 (1.005)	pedal 2.3579 (2.3579)	ipfl 0.7334 (0.7334)
+Epoch: [1][100/414]	Time 1.137 (1.150)	Data 0.000 (0.010)	pedal 2.2686 (2.4026)	ipfl 0.7460 (0.7120)
+Epoch: [1][200/414]	Time 1.155 (1.148)	Data 0.000 (0.005)	pedal 2.3044 (2.3647)	ipfl 0.7283 (0.7128)
+Epoch: [1][300/414]	Time 1.164 (1.148)	Data 0.000 (0.003)	pedal 2.3846 (2.3399)	ipfl 0.7253 (0.7097)
+Epoch: [1][400/414]	Time 1.158 (1.147)	Data 0.000 (0.003)	pedal 2.2854 (2.3122)	ipfl 0.7267 (0.7066)
+Epoch: [2][0/414]	Time 3.110 (3.110)	Data 1.812 (1.812)	pedal 2.0675 (2.0675)	ipfl 0.5930 (0.5930)
+Epoch: [2][100/414]	Time 1.172 (1.176)	Data 0.000 (0.018)	pedal 2.2013 (2.1491)	ipfl 0.6676 (0.6600)
+Epoch: [2][200/414]	Time 1.176 (1.170)	Data 0.000 (0.009)	pedal 1.9552 (2.1354)	ipfl 0.6366 (0.6589)
+Epoch: [2][300/414]	Time 1.171 (1.166)	Data 0.000 (0.006)	pedal 2.0584 (2.1086)	ipfl 0.6722 (0.6575)
+Epoch: [2][400/414]	Time 1.149 (1.162)	Data 0.000 (0.005)	pedal 1.8799 (2.0785)	ipfl 0.6344 (0.6593)
+Epoch: [3][0/414]	Time 3.046 (3.046)	Data 1.705 (1.705)	pedal 1.9920 (1.9920)	ipfl 0.6453 (0.6453)
+Epoch: [3][100/414]	Time 1.180 (1.175)	Data 0.000 (0.017)	pedal 1.8825 (1.9466)	ipfl 0.5268 (0.6337)
+Epoch: [3][200/414]	Time 1.165 (1.168)	Data 0.000 (0.009)	pedal 1.8985 (1.9137)	ipfl 0.5952 (0.6291)
+Epoch: [3][300/414]	Time 1.137 (1.163)	Data 0.000 (0.006)	pedal 1.8007 (1.9018)	ipfl 0.5989 (0.6292)
+Epoch: [3][400/414]	Time 1.159 (1.159)	Data 0.000 (0.004)	pedal 1.7529 (1.8815)	ipfl 0.6049 (0.6288)
+4
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 50.65%
+CMC Scores first_match
+  top-1         69.25%
+  top-5         81.46%
+  top-10        85.05%
+  top-15        86.67%
+  top-20        88.02%
+Epoch: [4][0/414]	Time 2.347 (2.347)	Data 1.038 (1.038)	pedal 1.8124 (1.8124)	ipfl 0.5733 (0.5733)
+Epoch: [4][100/414]	Time 1.143 (1.153)	Data 0.000 (0.010)	pedal 1.9398 (1.7940)	ipfl 0.5644 (0.5924)
+Epoch: [4][200/414]	Time 1.146 (1.149)	Data 0.000 (0.005)	pedal 1.8046 (1.7931)	ipfl 0.6031 (0.5928)
+Epoch: [4][300/414]	Time 1.146 (1.148)	Data 0.000 (0.004)	pedal 1.9050 (1.7844)	ipfl 0.5679 (0.5927)
+Epoch: [4][400/414]	Time 1.134 (1.147)	Data 0.000 (0.003)	pedal 1.7809 (1.7747)	ipfl 0.5824 (0.5940)
+Epoch: [5][0/414]	Time 2.852 (2.852)	Data 1.533 (1.533)	pedal 1.6640 (1.6640)	ipfl 0.4706 (0.4706)
+Epoch: [5][100/414]	Time 1.157 (1.165)	Data 0.000 (0.015)	pedal 1.6434 (1.7279)	ipfl 0.5214 (0.5666)
+Epoch: [5][200/414]	Time 1.149 (1.159)	Data 0.000 (0.008)	pedal 1.9144 (1.7387)	ipfl 0.6475 (0.5639)
+Epoch: [5][300/414]	Time 1.128 (1.154)	Data 0.000 (0.005)	pedal 1.6013 (1.7416)	ipfl 0.5777 (0.5624)
+Epoch: [5][400/414]	Time 1.148 (1.151)	Data 0.000 (0.004)	pedal 1.8216 (1.7466)	ipfl 0.6242 (0.5644)
+Epoch: [6][0/414]	Time 3.056 (3.056)	Data 1.757 (1.757)	pedal 1.7230 (1.7230)	ipfl 0.5226 (0.5226)
+Epoch: [6][100/414]	Time 1.171 (1.165)	Data 0.000 (0.018)	pedal 1.8580 (1.7384)	ipfl 0.4812 (0.5347)
+Epoch: [6][200/414]	Time 1.119 (1.157)	Data 0.000 (0.009)	pedal 1.8508 (1.7538)	ipfl 0.6411 (0.5401)
+Epoch: [6][300/414]	Time 1.130 (1.150)	Data 0.000 (0.006)	pedal 1.8675 (1.7587)	ipfl 0.5306 (0.5412)
+Epoch: [6][400/414]	Time 1.148 (1.147)	Data 0.000 (0.005)	pedal 1.9136 (1.7619)	ipfl 0.5426 (0.5406)
+7
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 50.94%
+CMC Scores first_match
+  top-1         69.75%
+  top-5         81.28%
+  top-10        84.38%
+  top-15        86.40%
+  top-20        87.66%
+Epoch: [7][0/414]	Time 2.250 (2.250)	Data 0.920 (0.920)	pedal 1.8218 (1.8218)	ipfl 0.5141 (0.5141)
+Epoch: [7][100/414]	Time 1.142 (1.148)	Data 0.000 (0.009)	pedal 1.7476 (1.7912)	ipfl 0.4848 (0.5058)
+Epoch: [7][200/414]	Time 1.137 (1.146)	Data 0.000 (0.005)	pedal 1.7227 (1.7932)	ipfl 0.4812 (0.5052)
+Epoch: [7][300/414]	Time 1.144 (1.145)	Data 0.000 (0.003)	pedal 1.8441 (1.7961)	ipfl 0.5488 (0.5062)
+Epoch: [7][400/414]	Time 1.141 (1.143)	Data 0.000 (0.002)	pedal 1.7706 (1.7996)	ipfl 0.4450 (0.5065)
+Epoch: [8][0/414]	Time 3.210 (3.210)	Data 1.901 (1.901)	pedal 1.8884 (1.8884)	ipfl 0.4937 (0.4937)
+Epoch: [8][100/414]	Time 1.121 (1.152)	Data 0.000 (0.019)	pedal 1.9435 (1.8028)	ipfl 0.4788 (0.4774)
+Epoch: [8][200/414]	Time 1.147 (1.144)	Data 0.000 (0.010)	pedal 1.9054 (1.8051)	ipfl 0.4713 (0.4829)
+Epoch: [8][300/414]	Time 1.115 (1.142)	Data 0.000 (0.006)	pedal 1.9320 (1.8064)	ipfl 0.5388 (0.4852)
+Epoch: [8][400/414]	Time 1.128 (1.138)	Data 0.000 (0.005)	pedal 1.8543 (1.8030)	ipfl 0.4457 (0.4854)
+Epoch: [9][0/414]	Time 2.948 (2.948)	Data 1.607 (1.607)	pedal 1.8141 (1.8141)	ipfl 0.4324 (0.4324)
+Epoch: [9][100/414]	Time 1.169 (1.162)	Data 0.000 (0.016)	pedal 1.6596 (1.7780)	ipfl 0.4281 (0.4539)
+Epoch: [9][200/414]	Time 1.137 (1.155)	Data 0.000 (0.008)	pedal 1.6524 (1.7741)	ipfl 0.4398 (0.4559)
+Epoch: [9][300/414]	Time 1.148 (1.150)	Data 0.000 (0.005)	pedal 1.8025 (1.7697)	ipfl 0.5155 (0.4559)
+Epoch: [9][400/414]	Time 1.121 (1.146)	Data 0.000 (0.004)	pedal 1.7343 (1.7593)	ipfl 0.5263 (0.4576)
+10
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 50.71%
+CMC Scores first_match
+  top-1         69.52%
+  top-5         81.19%
+  top-10        84.11%
+  top-15        86.27%
+  top-20        87.43%
+Epoch: [10][0/414]	Time 2.277 (2.277)	Data 0.945 (0.945)	pedal 1.9844 (1.9844)	ipfl 0.4957 (0.4957)
+Epoch: [10][100/414]	Time 1.129 (1.142)	Data 0.000 (0.009)	pedal 1.6815 (1.7155)	ipfl 0.3985 (0.4391)
+Epoch: [10][200/414]	Time 1.152 (1.142)	Data 0.000 (0.005)	pedal 1.4025 (1.6985)	ipfl 0.3577 (0.4398)
+Epoch: [10][300/414]	Time 1.165 (1.141)	Data 0.000 (0.003)	pedal 1.5543 (1.6895)	ipfl 0.3997 (0.4425)
+Epoch: [10][400/414]	Time 1.124 (1.141)	Data 0.000 (0.002)	pedal 1.6523 (1.6752)	ipfl 0.3659 (0.4402)
+Epoch: [11][0/414]	Time 3.045 (3.045)	Data 1.707 (1.707)	pedal 1.7047 (1.7047)	ipfl 0.5538 (0.5538)
+Epoch: [11][100/414]	Time 1.165 (1.160)	Data 0.000 (0.017)	pedal 1.7121 (1.6252)	ipfl 0.3826 (0.4237)
+Epoch: [11][200/414]	Time 1.130 (1.155)	Data 0.000 (0.009)	pedal 1.5933 (1.6131)	ipfl 0.4529 (0.4237)
+Epoch: [11][300/414]	Time 1.169 (1.151)	Data 0.000 (0.006)	pedal 1.5914 (1.5980)	ipfl 0.4245 (0.4229)
+Epoch: [11][400/414]	Time 1.130 (1.147)	Data 0.000 (0.004)	pedal 1.4920 (1.5911)	ipfl 0.3773 (0.4238)
+Epoch: [12][0/414]	Time 3.110 (3.110)	Data 1.789 (1.789)	pedal 1.5759 (1.5759)	ipfl 0.4318 (0.4318)
+Epoch: [12][100/414]	Time 1.181 (1.165)	Data 0.000 (0.018)	pedal 1.5817 (1.5447)	ipfl 0.4461 (0.4057)
+Epoch: [12][200/414]	Time 1.120 (1.155)	Data 0.000 (0.009)	pedal 1.4648 (1.5366)	ipfl 0.3646 (0.4063)
+Epoch: [12][300/414]	Time 1.134 (1.145)	Data 0.000 (0.006)	pedal 1.4108 (1.5324)	ipfl 0.3257 (0.4053)
+Epoch: [12][400/414]	Time 1.112 (1.142)	Data 0.000 (0.005)	pedal 1.4816 (1.5318)	ipfl 0.4533 (0.4080)
+Epoch: [13][0/414]	Time 3.106 (3.106)	Data 1.756 (1.756)	pedal 1.4142 (1.4142)	ipfl 0.3497 (0.3497)
+Epoch: [13][100/414]	Time 1.147 (1.164)	Data 0.000 (0.018)	pedal 1.3297 (1.5121)	ipfl 0.4296 (0.3941)
+Epoch: [13][200/414]	Time 1.113 (1.148)	Data 0.000 (0.009)	pedal 1.4369 (1.5078)	ipfl 0.3928 (0.3989)
+Epoch: [13][300/414]	Time 1.134 (1.144)	Data 0.000 (0.006)	pedal 1.3731 (1.5054)	ipfl 0.3033 (0.3985)
+Epoch: [13][400/414]	Time 1.142 (1.142)	Data 0.000 (0.005)	pedal 1.5102 (1.5071)	ipfl 0.3983 (0.4005)
+Epoch: [14][0/414]	Time 3.067 (3.067)	Data 1.723 (1.723)	pedal 1.5130 (1.5130)	ipfl 0.3983 (0.3983)
+Epoch: [14][100/414]	Time 1.126 (1.163)	Data 0.000 (0.017)	pedal 1.4554 (1.4986)	ipfl 0.3745 (0.3794)
+Epoch: [14][200/414]	Time 1.146 (1.157)	Data 0.000 (0.009)	pedal 1.4450 (1.5000)	ipfl 0.3660 (0.3849)
+Epoch: [14][300/414]	Time 1.159 (1.153)	Data 0.000 (0.006)	pedal 1.5476 (1.4989)	ipfl 0.3857 (0.3849)
+Epoch: [14][400/414]	Time 1.127 (1.149)	Data 0.000 (0.004)	pedal 1.5982 (1.5002)	ipfl 0.4722 (0.3826)
+Epoch: [15][0/414]	Time 3.106 (3.106)	Data 1.738 (1.738)	pedal 1.5492 (1.5492)	ipfl 0.3678 (0.3678)
+Epoch: [15][100/414]	Time 1.161 (1.162)	Data 0.000 (0.017)	pedal 1.5015 (1.5174)	ipfl 0.4105 (0.3778)
+Epoch: [15][200/414]	Time 1.137 (1.155)	Data 0.000 (0.009)	pedal 1.4424 (1.5154)	ipfl 0.3800 (0.3799)
+Epoch: [15][300/414]	Time 1.162 (1.151)	Data 0.000 (0.006)	pedal 1.5164 (1.5105)	ipfl 0.3976 (0.3762)
+Epoch: [15][400/414]	Time 1.136 (1.149)	Data 0.000 (0.004)	pedal 1.5268 (1.5092)	ipfl 0.3845 (0.3749)
+16
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 50.67%
+CMC Scores first_match
+  top-1         69.97%
+  top-5         81.15%
+  top-10        84.07%
+  top-15        85.86%
+  top-20        87.66%
+Epoch: [16][0/414]	Time 2.299 (2.299)	Data 0.973 (0.973)	pedal 1.3780 (1.3780)	ipfl 0.3221 (0.3221)
+Epoch: [16][100/414]	Time 1.125 (1.150)	Data 0.000 (0.010)	pedal 1.5347 (1.5002)	ipfl 0.3185 (0.3671)
+Epoch: [16][200/414]	Time 1.125 (1.142)	Data 0.000 (0.005)	pedal 1.5261 (1.5090)	ipfl 0.3598 (0.3660)
+Epoch: [16][300/414]	Time 1.147 (1.139)	Data 0.000 (0.003)	pedal 1.5901 (1.5052)	ipfl 0.3870 (0.3651)
+Epoch: [16][400/414]	Time 1.106 (1.135)	Data 0.000 (0.003)	pedal 1.5228 (1.5046)	ipfl 0.3914 (0.3631)
+Epoch: [17][0/414]	Time 2.845 (2.845)	Data 1.542 (1.542)	pedal 1.6392 (1.6392)	ipfl 0.4529 (0.4529)
+Epoch: [17][100/414]	Time 1.145 (1.160)	Data 0.000 (0.015)	pedal 1.5962 (1.5118)	ipfl 0.4495 (0.3632)
+Epoch: [17][200/414]	Time 1.150 (1.155)	Data 0.000 (0.008)	pedal 1.3395 (1.5019)	ipfl 0.3761 (0.3578)
+Epoch: [17][300/414]	Time 1.142 (1.151)	Data 0.000 (0.005)	pedal 1.4965 (1.4925)	ipfl 0.3818 (0.3573)
+Epoch: [17][400/414]	Time 1.145 (1.145)	Data 0.000 (0.004)	pedal 1.5312 (1.4875)	ipfl 0.2698 (0.3557)
+Epoch: [18][0/414]	Time 2.991 (2.991)	Data 1.714 (1.714)	pedal 1.4766 (1.4766)	ipfl 0.3642 (0.3642)
+Epoch: [18][100/414]	Time 1.147 (1.156)	Data 0.000 (0.017)	pedal 1.4812 (1.4732)	ipfl 0.3298 (0.3462)
+Epoch: [18][200/414]	Time 1.167 (1.149)	Data 0.000 (0.009)	pedal 1.3229 (1.4663)	ipfl 0.2848 (0.3438)
+Epoch: [18][300/414]	Time 1.129 (1.144)	Data 0.000 (0.006)	pedal 1.5497 (1.4618)	ipfl 0.3557 (0.3430)
+Epoch: [18][400/414]	Time 1.153 (1.143)	Data 0.000 (0.004)	pedal 1.3342 (1.4576)	ipfl 0.2671 (0.3429)
+Epoch: [19][0/414]	Time 3.127 (3.127)	Data 1.818 (1.818)	pedal 1.4202 (1.4202)	ipfl 0.3974 (0.3974)
+Epoch: [19][100/414]	Time 1.136 (1.158)	Data 0.000 (0.018)	pedal 1.4872 (1.4296)	ipfl 0.3300 (0.3403)
+Epoch: [19][200/414]	Time 1.158 (1.151)	Data 0.000 (0.009)	pedal 1.4456 (1.4273)	ipfl 0.4163 (0.3397)
+Epoch: [19][300/414]	Time 1.135 (1.147)	Data 0.000 (0.006)	pedal 1.3877 (1.4315)	ipfl 0.4024 (0.3392)
+Epoch: [19][400/414]	Time 1.122 (1.144)	Data 0.000 (0.005)	pedal 1.5291 (1.4255)	ipfl 0.3602 (0.3363)
+Epoch: [20][0/414]	Time 3.090 (3.090)	Data 1.793 (1.793)	pedal 1.4239 (1.4239)	ipfl 0.3559 (0.3559)
+Epoch: [20][100/414]	Time 1.168 (1.168)	Data 0.000 (0.018)	pedal 1.5834 (1.4070)	ipfl 0.3600 (0.3275)
+Epoch: [20][200/414]	Time 1.144 (1.161)	Data 0.000 (0.009)	pedal 1.3587 (1.4003)	ipfl 0.3322 (0.3295)
+Epoch: [20][300/414]	Time 1.157 (1.156)	Data 0.000 (0.006)	pedal 1.4030 (1.4019)	ipfl 0.3429 (0.3300)
+Epoch: [20][400/414]	Time 1.136 (1.152)	Data 0.000 (0.005)	pedal 1.2597 (1.3977)	ipfl 0.3147 (0.3281)
+21
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 51.06%
+CMC Scores first_match
+  top-1         71.01%
+  top-5         80.79%
+  top-10        83.98%
+  top-15        86.13%
+  top-20        87.84%
+Epoch: [21][0/414]	Time 2.264 (2.264)	Data 0.922 (0.922)	pedal 1.3613 (1.3613)	ipfl 0.2232 (0.2232)
+Epoch: [21][100/414]	Time 1.130 (1.140)	Data 0.000 (0.009)	pedal 1.4517 (1.3893)	ipfl 0.3278 (0.3216)
+Epoch: [21][200/414]	Time 1.147 (1.138)	Data 0.000 (0.005)	pedal 1.2819 (1.3808)	ipfl 0.3184 (0.3225)
+Epoch: [21][300/414]	Time 1.135 (1.136)	Data 0.000 (0.003)	pedal 1.4433 (1.3825)	ipfl 0.3650 (0.3219)
+Epoch: [21][400/414]	Time 1.144 (1.136)	Data 0.000 (0.002)	pedal 1.3377 (1.3785)	ipfl 0.3324 (0.3189)
+Epoch: [22][0/414]	Time 2.996 (2.996)	Data 1.665 (1.665)	pedal 1.5017 (1.5017)	ipfl 0.2803 (0.2803)
+Epoch: [22][100/414]	Time 1.141 (1.158)	Data 0.000 (0.017)	pedal 1.4966 (1.3851)	ipfl 0.3013 (0.3152)
+Epoch: [22][200/414]	Time 1.151 (1.152)	Data 0.000 (0.008)	pedal 1.5952 (1.3798)	ipfl 0.3584 (0.3159)
+Epoch: [22][300/414]	Time 1.128 (1.149)	Data 0.000 (0.006)	pedal 1.3209 (1.3746)	ipfl 0.3412 (0.3127)
+Epoch: [22][400/414]	Time 1.132 (1.145)	Data 0.000 (0.004)	pedal 1.3091 (1.3747)	ipfl 0.2868 (0.3119)
+Epoch: [23][0/414]	Time 3.040 (3.040)	Data 1.702 (1.702)	pedal 1.3214 (1.3214)	ipfl 0.2574 (0.2574)
+Epoch: [23][100/414]	Time 1.158 (1.160)	Data 0.000 (0.017)	pedal 1.3437 (1.3696)	ipfl 0.2329 (0.3020)
+Epoch: [23][200/414]	Time 1.137 (1.155)	Data 0.000 (0.009)	pedal 1.2974 (1.3735)	ipfl 0.2813 (0.3018)
+Epoch: [23][300/414]	Time 1.147 (1.150)	Data 0.000 (0.006)	pedal 1.5634 (1.3723)	ipfl 0.2867 (0.3026)
+Epoch: [23][400/414]	Time 1.126 (1.146)	Data 0.000 (0.004)	pedal 1.3094 (1.3722)	ipfl 0.2308 (0.3020)
+Epoch: [24][0/414]	Time 3.064 (3.064)	Data 1.733 (1.733)	pedal 1.3786 (1.3786)	ipfl 0.2706 (0.2706)
+Epoch: [24][100/414]	Time 1.141 (1.159)	Data 0.000 (0.017)	pedal 1.3969 (1.3808)	ipfl 0.3323 (0.2962)
+Epoch: [24][200/414]	Time 1.140 (1.152)	Data 0.000 (0.009)	pedal 1.3379 (1.3717)	ipfl 0.3353 (0.2944)
+Epoch: [24][300/414]	Time 1.178 (1.147)	Data 0.000 (0.006)	pedal 1.3717 (1.3733)	ipfl 0.3051 (0.2948)
+Epoch: [24][400/414]	Time 1.127 (1.144)	Data 0.000 (0.004)	pedal 1.2657 (1.3719)	ipfl 0.2477 (0.2952)
+Epoch: [25][0/414]	Time 3.065 (3.065)	Data 1.748 (1.748)	pedal 1.2731 (1.2731)	ipfl 0.2760 (0.2760)
+Epoch: [25][100/414]	Time 1.172 (1.163)	Data 0.000 (0.017)	pedal 1.3715 (1.3612)	ipfl 0.2564 (0.2808)
+Epoch: [25][200/414]	Time 1.141 (1.157)	Data 0.000 (0.009)	pedal 1.4166 (1.3586)	ipfl 0.2856 (0.2834)
+Epoch: [25][300/414]	Time 1.136 (1.152)	Data 0.000 (0.006)	pedal 1.2456 (1.3599)	ipfl 0.2305 (0.2831)
+Epoch: [25][400/414]	Time 1.121 (1.148)	Data 0.000 (0.004)	pedal 1.4402 (1.3603)	ipfl 0.3874 (0.2822)
+26
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 50.32%
+CMC Scores first_match
+  top-1         70.15%
+  top-5         80.21%
+  top-10        83.57%
+  top-15        85.86%
+  top-20        87.16%
+Epoch: [26][0/414]	Time 2.393 (2.393)	Data 1.084 (1.084)	pedal 1.4296 (1.4296)	ipfl 0.2868 (0.2868)
+Epoch: [26][100/414]	Time 1.122 (1.141)	Data 0.000 (0.011)	pedal 1.3016 (1.3432)	ipfl 0.2480 (0.2795)
+Epoch: [26][200/414]	Time 1.139 (1.136)	Data 0.000 (0.006)	pedal 1.2863 (1.3475)	ipfl 0.1948 (0.2807)
+Epoch: [26][300/414]	Time 1.133 (1.134)	Data 0.000 (0.004)	pedal 1.3059 (1.3463)	ipfl 0.3390 (0.2804)
+Epoch: [26][400/414]	Time 1.129 (1.135)	Data 0.000 (0.003)	pedal 1.4257 (1.3490)	ipfl 0.2714 (0.2782)
+Epoch: [27][0/414]	Time 3.018 (3.018)	Data 1.695 (1.695)	pedal 1.4232 (1.4232)	ipfl 0.3036 (0.3036)
+Epoch: [27][100/414]	Time 1.155 (1.159)	Data 0.000 (0.017)	pedal 1.4693 (1.3421)	ipfl 0.2729 (0.2754)
+Epoch: [27][200/414]	Time 1.126 (1.153)	Data 0.000 (0.009)	pedal 1.1944 (1.3327)	ipfl 0.2695 (0.2709)
+Epoch: [27][300/414]	Time 1.128 (1.149)	Data 0.000 (0.006)	pedal 1.3944 (1.3345)	ipfl 0.2058 (0.2699)
+Epoch: [27][400/414]	Time 1.119 (1.144)	Data 0.000 (0.004)	pedal 1.3557 (1.3354)	ipfl 0.2839 (0.2703)
+Epoch: [28][0/414]	Time 3.122 (3.122)	Data 1.804 (1.804)	pedal 1.1835 (1.1835)	ipfl 0.2631 (0.2631)
+Epoch: [28][100/414]	Time 1.162 (1.160)	Data 0.000 (0.018)	pedal 1.3189 (1.3255)	ipfl 0.2973 (0.2704)
+Epoch: [28][200/414]	Time 1.141 (1.154)	Data 0.000 (0.009)	pedal 1.1175 (1.3195)	ipfl 0.3030 (0.2648)
+Epoch: [28][300/414]	Time 1.137 (1.150)	Data 0.000 (0.006)	pedal 1.3575 (1.3178)	ipfl 0.2905 (0.2659)
+Epoch: [28][400/414]	Time 1.138 (1.146)	Data 0.000 (0.005)	pedal 1.3715 (1.3184)	ipfl 0.2872 (0.2639)
+Epoch: [29][0/414]	Time 3.338 (3.338)	Data 2.018 (2.018)	pedal 1.5906 (1.5906)	ipfl 0.2723 (0.2723)
+Epoch: [29][100/414]	Time 1.136 (1.161)	Data 0.000 (0.020)	pedal 1.2715 (1.3223)	ipfl 0.2363 (0.2614)
+Epoch: [29][200/414]	Time 1.124 (1.153)	Data 0.000 (0.010)	pedal 1.2436 (1.3155)	ipfl 0.2849 (0.2613)
+Epoch: [29][300/414]	Time 1.115 (1.148)	Data 0.000 (0.007)	pedal 1.3401 (1.3102)	ipfl 0.3236 (0.2582)
+Epoch: [29][400/414]	Time 1.128 (1.144)	Data 0.000 (0.005)	pedal 1.2676 (1.3087)	ipfl 0.2474 (0.2566)
+Epoch: [30][0/414]	Time 2.954 (2.954)	Data 1.641 (1.641)	pedal 1.3194 (1.3194)	ipfl 0.2343 (0.2343)
+Epoch: [30][100/414]	Time 1.173 (1.158)	Data 0.000 (0.016)	pedal 1.3824 (1.3093)	ipfl 0.2331 (0.2545)
+Epoch: [30][200/414]	Time 1.168 (1.155)	Data 0.000 (0.008)	pedal 1.3474 (1.3051)	ipfl 0.2272 (0.2557)
+Epoch: [30][300/414]	Time 1.119 (1.150)	Data 0.000 (0.006)	pedal 1.2606 (1.3052)	ipfl 0.1811 (0.2537)
+Epoch: [30][400/414]	Time 1.148 (1.146)	Data 0.000 (0.004)	pedal 1.3189 (1.3026)	ipfl 0.2215 (0.2519)
+31
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 50.71%
+CMC Scores first_match
+  top-1         69.84%
+  top-5         80.61%
+  top-10        84.07%
+  top-15        85.86%
+  top-20        87.21%
+Epoch: [31][0/414]	Time 2.350 (2.350)	Data 1.024 (1.024)	pedal 1.3026 (1.3026)	ipfl 0.2175 (0.2175)
+Epoch: [31][100/414]	Time 1.122 (1.139)	Data 0.000 (0.010)	pedal 1.3347 (1.3162)	ipfl 0.2336 (0.2487)
+Epoch: [31][200/414]	Time 1.133 (1.133)	Data 0.000 (0.005)	pedal 1.2483 (1.3006)	ipfl 0.3037 (0.2446)
+Epoch: [31][300/414]	Time 1.132 (1.132)	Data 0.000 (0.004)	pedal 1.2412 (1.2977)	ipfl 0.2167 (0.2446)
+Epoch: [31][400/414]	Time 1.122 (1.131)	Data 0.000 (0.003)	pedal 1.0912 (1.2986)	ipfl 0.1523 (0.2446)
+Epoch: [32][0/414]	Time 3.183 (3.183)	Data 1.898 (1.898)	pedal 1.2913 (1.2913)	ipfl 0.2136 (0.2136)
+Epoch: [32][100/414]	Time 1.125 (1.157)	Data 0.000 (0.019)	pedal 1.2489 (1.2968)	ipfl 0.1945 (0.2397)
+Epoch: [32][200/414]	Time 1.134 (1.149)	Data 0.000 (0.010)	pedal 1.3166 (1.2944)	ipfl 0.1671 (0.2366)
+Epoch: [32][300/414]	Time 1.163 (1.145)	Data 0.000 (0.006)	pedal 1.3182 (1.2944)	ipfl 0.1915 (0.2386)
+Epoch: [32][400/414]	Time 1.131 (1.140)	Data 0.000 (0.005)	pedal 1.4988 (1.2955)	ipfl 0.3227 (0.2393)
+Epoch: [33][0/414]	Time 3.185 (3.185)	Data 1.853 (1.853)	pedal 1.1466 (1.1466)	ipfl 0.2349 (0.2349)
+Epoch: [33][100/414]	Time 1.159 (1.157)	Data 0.000 (0.018)	pedal 1.2528 (1.2861)	ipfl 0.2010 (0.2320)
+Epoch: [33][200/414]	Time 1.131 (1.150)	Data 0.000 (0.009)	pedal 1.3278 (1.2910)	ipfl 0.2256 (0.2329)
+Epoch: [33][300/414]	Time 1.145 (1.145)	Data 0.000 (0.006)	pedal 1.2801 (1.2915)	ipfl 0.1789 (0.2326)
+Epoch: [33][400/414]	Time 1.118 (1.142)	Data 0.000 (0.005)	pedal 1.3451 (1.2883)	ipfl 0.3112 (0.2323)
+Epoch: [34][0/414]	Time 3.070 (3.070)	Data 1.766 (1.766)	pedal 1.1467 (1.1467)	ipfl 0.1469 (0.1469)
+Epoch: [34][100/414]	Time 1.127 (1.154)	Data 0.000 (0.018)	pedal 1.2357 (1.3010)	ipfl 0.1432 (0.2242)
+Epoch: [34][200/414]	Time 1.129 (1.148)	Data 0.000 (0.009)	pedal 1.1983 (1.2902)	ipfl 0.2435 (0.2280)
+Epoch: [34][300/414]	Time 1.148 (1.145)	Data 0.000 (0.006)	pedal 1.0798 (1.2837)	ipfl 0.2154 (0.2281)
+Epoch: [34][400/414]	Time 1.121 (1.142)	Data 0.000 (0.005)	pedal 1.4295 (1.2831)	ipfl 0.2946 (0.2278)
+Epoch: [35][0/414]	Time 3.169 (3.169)	Data 1.880 (1.880)	pedal 1.2086 (1.2086)	ipfl 0.1716 (0.1716)
+Epoch: [35][100/414]	Time 1.156 (1.156)	Data 0.000 (0.019)	pedal 1.1862 (1.2642)	ipfl 0.2090 (0.2192)
+Epoch: [35][200/414]	Time 1.160 (1.151)	Data 0.000 (0.009)	pedal 1.1902 (1.2713)	ipfl 0.1603 (0.2224)
+Epoch: [35][300/414]	Time 1.144 (1.147)	Data 0.000 (0.006)	pedal 1.1357 (1.2728)	ipfl 0.1837 (0.2242)
+Epoch: [35][400/414]	Time 1.121 (1.143)	Data 0.000 (0.005)	pedal 1.2878 (1.2754)	ipfl 0.2457 (0.2251)
+36
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 50.93%
+CMC Scores first_match
+  top-1         70.65%
+  top-5         81.01%
+  top-10        84.43%
+  top-15        85.95%
+  top-20        87.25%
+Epoch: [36][0/414]	Time 2.295 (2.295)	Data 0.920 (0.920)	pedal 1.1725 (1.1725)	ipfl 0.1813 (0.1813)
+Epoch: [36][100/414]	Time 1.134 (1.141)	Data 0.000 (0.009)	pedal 1.3450 (1.2792)	ipfl 0.2026 (0.2268)
+Epoch: [36][200/414]	Time 1.126 (1.138)	Data 0.000 (0.005)	pedal 1.4111 (1.2756)	ipfl 0.2184 (0.2229)
+Epoch: [36][300/414]	Time 1.145 (1.138)	Data 0.000 (0.003)	pedal 1.1989 (1.2680)	ipfl 0.2296 (0.2194)
+Epoch: [36][400/414]	Time 1.098 (1.137)	Data 0.000 (0.002)	pedal 1.2793 (1.2654)	ipfl 0.2743 (0.2195)
+Epoch: [37][0/414]	Time 3.096 (3.096)	Data 1.768 (1.768)	pedal 1.3135 (1.3135)	ipfl 0.1898 (0.1898)
+Epoch: [37][100/414]	Time 1.125 (1.160)	Data 0.000 (0.018)	pedal 1.2007 (1.2501)	ipfl 0.1896 (0.2120)
+Epoch: [37][200/414]	Time 1.151 (1.152)	Data 0.000 (0.009)	pedal 1.2619 (1.2589)	ipfl 0.2079 (0.2125)
+Epoch: [37][300/414]	Time 1.145 (1.146)	Data 0.000 (0.006)	pedal 1.3226 (1.2583)	ipfl 0.2649 (0.2125)
+Epoch: [37][400/414]	Time 1.117 (1.143)	Data 0.000 (0.005)	pedal 1.1345 (1.2564)	ipfl 0.2082 (0.2108)
+Epoch: [38][0/414]	Time 3.094 (3.094)	Data 1.769 (1.769)	pedal 1.1600 (1.1600)	ipfl 0.1749 (0.1749)
+Epoch: [38][100/414]	Time 1.162 (1.158)	Data 0.000 (0.018)	pedal 1.2601 (1.2445)	ipfl 0.1777 (0.2058)
+Epoch: [38][200/414]	Time 1.125 (1.149)	Data 0.000 (0.009)	pedal 1.2771 (1.2451)	ipfl 0.1977 (0.2107)
+Epoch: [38][300/414]	Time 1.144 (1.146)	Data 0.000 (0.006)	pedal 1.2542 (1.2471)	ipfl 0.1539 (0.2114)
+Epoch: [38][400/414]	Time 1.147 (1.143)	Data 0.000 (0.005)	pedal 1.1389 (1.2497)	ipfl 0.2217 (0.2106)
+Epoch: [39][0/414]	Time 2.944 (2.944)	Data 1.616 (1.616)	pedal 1.2326 (1.2326)	ipfl 0.2454 (0.2454)
+Epoch: [39][100/414]	Time 1.138 (1.156)	Data 0.000 (0.016)	pedal 1.3043 (1.2458)	ipfl 0.2055 (0.2101)
+Epoch: [39][200/414]	Time 1.148 (1.149)	Data 0.000 (0.008)	pedal 1.2309 (1.2469)	ipfl 0.2514 (0.2058)
+Epoch: [39][300/414]	Time 1.142 (1.144)	Data 0.000 (0.006)	pedal 1.2862 (1.2466)	ipfl 0.2061 (0.2066)
+Epoch: [39][400/414]	Time 1.140 (1.141)	Data 0.000 (0.004)	pedal 1.2184 (1.2457)	ipfl 0.1961 (0.2060)
+Epoch: [40][0/414]	Time 3.283 (3.283)	Data 1.965 (1.965)	pedal 1.1122 (1.1122)	ipfl 0.1553 (0.1553)
+Epoch: [40][100/414]	Time 1.165 (1.166)	Data 0.000 (0.020)	pedal 1.2171 (1.2407)	ipfl 0.1911 (0.2045)
+Epoch: [40][200/414]	Time 1.132 (1.160)	Data 0.000 (0.010)	pedal 1.2845 (1.2439)	ipfl 0.1633 (0.2024)
+Epoch: [40][300/414]	Time 1.142 (1.154)	Data 0.000 (0.007)	pedal 1.2956 (1.2425)	ipfl 0.2209 (0.2004)
+Epoch: [40][400/414]	Time 1.142 (1.150)	Data 0.000 (0.005)	pedal 1.3688 (1.2401)	ipfl 0.2105 (0.2002)
+41
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 50.51%
+CMC Scores first_match
+  top-1         70.11%
+  top-5         80.97%
+  top-10        83.80%
+  top-15        85.73%
+  top-20        86.98%
+Epoch: [41][0/414]	Time 2.363 (2.363)	Data 1.050 (1.050)	pedal 1.1935 (1.1935)	ipfl 0.1605 (0.1605)
+Epoch: [41][100/414]	Time 1.125 (1.149)	Data 0.000 (0.011)	pedal 1.2486 (1.2404)	ipfl 0.3013 (0.2019)
+Epoch: [41][200/414]	Time 1.148 (1.142)	Data 0.000 (0.005)	pedal 1.2103 (1.2382)	ipfl 0.1199 (0.2001)
+Epoch: [41][300/414]	Time 1.125 (1.136)	Data 0.000 (0.004)	pedal 1.2578 (1.2396)	ipfl 0.2077 (0.1978)
+Epoch: [41][400/414]	Time 1.108 (1.133)	Data 0.000 (0.003)	pedal 1.2601 (1.2344)	ipfl 0.1594 (0.1976)
+Epoch: [42][0/414]	Time 3.031 (3.031)	Data 1.725 (1.725)	pedal 1.3787 (1.3787)	ipfl 0.2178 (0.2178)
+Epoch: [42][100/414]	Time 1.124 (1.152)	Data 0.000 (0.017)	pedal 1.2102 (1.2365)	ipfl 0.1872 (0.1946)
+Epoch: [42][200/414]	Time 1.128 (1.145)	Data 0.000 (0.009)	pedal 1.2310 (1.2334)	ipfl 0.1763 (0.1950)
+Epoch: [42][300/414]	Time 1.115 (1.140)	Data 0.000 (0.006)	pedal 1.1708 (1.2311)	ipfl 0.1843 (0.1938)
+Epoch: [42][400/414]	Time 1.100 (1.133)	Data 0.000 (0.004)	pedal 1.1115 (1.2281)	ipfl 0.1647 (0.1938)
+Epoch: [43][0/414]	Time 3.003 (3.003)	Data 1.682 (1.682)	pedal 1.3075 (1.3075)	ipfl 0.2108 (0.2108)
+Epoch: [43][100/414]	Time 1.151 (1.153)	Data 0.000 (0.017)	pedal 1.3234 (1.2257)	ipfl 0.1650 (0.2022)
+Epoch: [43][200/414]	Time 1.122 (1.149)	Data 0.000 (0.009)	pedal 1.2752 (1.2272)	ipfl 0.2124 (0.1924)
+Epoch: [43][300/414]	Time 1.157 (1.144)	Data 0.000 (0.006)	pedal 1.2475 (1.2232)	ipfl 0.1772 (0.1915)
+Epoch: [43][400/414]	Time 1.121 (1.141)	Data 0.000 (0.004)	pedal 1.2045 (1.2243)	ipfl 0.1822 (0.1928)
+Epoch: [44][0/414]	Time 3.148 (3.148)	Data 1.830 (1.830)	pedal 1.1591 (1.1591)	ipfl 0.1682 (0.1682)
+Epoch: [44][100/414]	Time 1.141 (1.157)	Data 0.000 (0.018)	pedal 1.1943 (1.2055)	ipfl 0.1822 (0.1866)
+Epoch: [44][200/414]	Time 1.137 (1.150)	Data 0.000 (0.009)	pedal 1.0681 (1.2046)	ipfl 0.1366 (0.1820)
+Epoch: [44][300/414]	Time 1.104 (1.143)	Data 0.000 (0.006)	pedal 1.1756 (1.2137)	ipfl 0.1547 (0.1830)
+Epoch: [44][400/414]	Time 1.120 (1.140)	Data 0.000 (0.005)	pedal 1.1884 (1.2154)	ipfl 0.1643 (0.1834)
+Epoch: [45][0/414]	Time 2.961 (2.961)	Data 1.622 (1.622)	pedal 1.1605 (1.1605)	ipfl 0.1463 (0.1463)
+Epoch: [45][100/414]	Time 1.129 (1.153)	Data 0.000 (0.016)	pedal 1.1748 (1.2105)	ipfl 0.1474 (0.1861)
+Epoch: [45][200/414]	Time 1.125 (1.149)	Data 0.000 (0.008)	pedal 1.2667 (1.2091)	ipfl 0.1964 (0.1836)
+Epoch: [45][300/414]	Time 1.169 (1.147)	Data 0.000 (0.006)	pedal 1.2650 (1.2100)	ipfl 0.2479 (0.1822)
+Epoch: [45][400/414]	Time 1.118 (1.143)	Data 0.000 (0.004)	pedal 1.2578 (1.2132)	ipfl 0.1799 (0.1822)
+46
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 49.44%
+CMC Scores first_match
+  top-1         69.12%
+  top-5         79.85%
+  top-10        83.21%
+  top-15        84.87%
+  top-20        86.27%
+Epoch: [46][0/414]	Time 2.311 (2.311)	Data 0.999 (0.999)	pedal 1.1853 (1.1853)	ipfl 0.1375 (0.1375)
+Epoch: [46][100/414]	Time 1.114 (1.139)	Data 0.000 (0.010)	pedal 1.2268 (1.2054)	ipfl 0.1850 (0.1850)
+Epoch: [46][200/414]	Time 1.135 (1.133)	Data 0.000 (0.005)	pedal 1.1678 (1.2013)	ipfl 0.2049 (0.1821)
+Epoch: [46][300/414]	Time 1.122 (1.131)	Data 0.000 (0.003)	pedal 1.2353 (1.2047)	ipfl 0.1189 (0.1793)
+Epoch: [46][400/414]	Time 1.124 (1.131)	Data 0.000 (0.003)	pedal 1.2608 (1.2062)	ipfl 0.2397 (0.1793)
+Epoch: [47][0/414]	Time 2.957 (2.957)	Data 1.635 (1.635)	pedal 1.2514 (1.2514)	ipfl 0.2061 (0.2061)
+Epoch: [47][100/414]	Time 1.178 (1.155)	Data 0.000 (0.016)	pedal 1.2267 (1.1932)	ipfl 0.1544 (0.1761)
+Epoch: [47][200/414]	Time 1.124 (1.149)	Data 0.000 (0.008)	pedal 1.1338 (1.1947)	ipfl 0.1663 (0.1751)
+Epoch: [47][300/414]	Time 1.132 (1.145)	Data 0.000 (0.006)	pedal 1.2253 (1.1965)	ipfl 0.1411 (0.1762)
+Epoch: [47][400/414]	Time 1.120 (1.142)	Data 0.000 (0.004)	pedal 1.2859 (1.2001)	ipfl 0.1887 (0.1769)
+Epoch: [48][0/414]	Time 3.139 (3.139)	Data 1.806 (1.806)	pedal 1.1658 (1.1658)	ipfl 0.1861 (0.1861)
+Epoch: [48][100/414]	Time 1.135 (1.157)	Data 0.000 (0.018)	pedal 1.0890 (1.2055)	ipfl 0.1706 (0.1775)
+Epoch: [48][200/414]	Time 1.140 (1.148)	Data 0.000 (0.009)	pedal 1.2021 (1.1941)	ipfl 0.1273 (0.1759)
+Epoch: [48][300/414]	Time 1.126 (1.140)	Data 0.000 (0.006)	pedal 1.2266 (1.1983)	ipfl 0.1537 (0.1750)
+Epoch: [48][400/414]	Time 1.121 (1.136)	Data 0.000 (0.005)	pedal 1.0980 (1.1964)	ipfl 0.1712 (0.1735)
+Epoch: [49][0/414]	Time 3.060 (3.060)	Data 1.713 (1.713)	pedal 1.0979 (1.0979)	ipfl 0.1876 (0.1876)
+Epoch: [49][100/414]	Time 1.162 (1.156)	Data 0.000 (0.017)	pedal 1.1638 (1.1854)	ipfl 0.1460 (0.1689)
+Epoch: [49][200/414]	Time 1.129 (1.151)	Data 0.000 (0.009)	pedal 1.1344 (1.1870)	ipfl 0.1487 (0.1709)
+Epoch: [49][300/414]	Time 1.141 (1.146)	Data 0.000 (0.006)	pedal 1.0967 (1.1896)	ipfl 0.1385 (0.1735)
+Epoch: [49][400/414]	Time 1.140 (1.143)	Data 0.000 (0.004)	pedal 1.0555 (1.1901)	ipfl 0.1338 (0.1736)
+Epoch: [50][0/414]	Time 3.301 (3.301)	Data 1.985 (1.985)	pedal 1.1224 (1.1224)	ipfl 0.3551 (0.3551)
+Epoch: [50][100/414]	Time 1.159 (1.152)	Data 0.000 (0.020)	pedal 1.1477 (1.1791)	ipfl 0.1097 (0.1699)
+Epoch: [50][200/414]	Time 1.144 (1.146)	Data 0.000 (0.010)	pedal 1.1398 (1.1858)	ipfl 0.1760 (0.1717)
+Epoch: [50][300/414]	Time 1.150 (1.141)	Data 0.000 (0.007)	pedal 1.2044 (1.1875)	ipfl 0.1704 (0.1723)
+Epoch: [50][400/414]	Time 1.129 (1.139)	Data 0.000 (0.005)	pedal 1.1183 (1.1845)	ipfl 0.1715 (0.1709)
+51
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 50.00%
+CMC Scores first_match
+  top-1         69.93%
+  top-5         80.30%
+  top-10        83.93%
+  top-15        85.05%
+  top-20        86.22%
+Epoch: [51][0/414]	Time 2.384 (2.384)	Data 1.051 (1.051)	pedal 1.2355 (1.2355)	ipfl 0.1892 (0.1892)
+Epoch: [51][100/414]	Time 1.152 (1.142)	Data 0.000 (0.011)	pedal 1.1595 (1.1771)	ipfl 0.1651 (0.1683)
+Epoch: [51][200/414]	Time 1.125 (1.137)	Data 0.000 (0.005)	pedal 1.2740 (1.1815)	ipfl 0.1667 (0.1691)
+Epoch: [51][300/414]	Time 1.119 (1.135)	Data 0.000 (0.004)	pedal 1.0623 (1.1840)	ipfl 0.1532 (0.1687)
+Epoch: [51][400/414]	Time 1.123 (1.133)	Data 0.000 (0.003)	pedal 1.4126 (1.1858)	ipfl 0.2167 (0.1687)
+Epoch: [52][0/414]	Time 3.181 (3.181)	Data 1.884 (1.884)	pedal 1.1808 (1.1808)	ipfl 0.1747 (0.1747)
+Epoch: [52][100/414]	Time 1.134 (1.160)	Data 0.000 (0.019)	pedal 1.2131 (1.1799)	ipfl 0.1531 (0.1689)
+Epoch: [52][200/414]	Time 1.128 (1.153)	Data 0.000 (0.010)	pedal 1.0995 (1.1795)	ipfl 0.1466 (0.1718)
+Epoch: [52][300/414]	Time 1.124 (1.147)	Data 0.000 (0.006)	pedal 1.2412 (1.1829)	ipfl 0.1809 (0.1707)
+Epoch: [52][400/414]	Time 1.122 (1.144)	Data 0.000 (0.005)	pedal 1.1036 (1.1841)	ipfl 0.1612 (0.1686)
+Epoch: [53][0/414]	Time 2.831 (2.831)	Data 1.500 (1.500)	pedal 1.1443 (1.1443)	ipfl 0.1724 (0.1724)
+Epoch: [53][100/414]	Time 1.158 (1.153)	Data 0.000 (0.015)	pedal 1.2532 (1.1808)	ipfl 0.1607 (0.1632)
+Epoch: [53][200/414]	Time 1.142 (1.149)	Data 0.000 (0.008)	pedal 1.2125 (1.1798)	ipfl 0.2159 (0.1691)
+Epoch: [53][300/414]	Time 1.154 (1.145)	Data 0.000 (0.005)	pedal 1.1939 (1.1821)	ipfl 0.1963 (0.1676)
+Epoch: [53][400/414]	Time 1.135 (1.143)	Data 0.000 (0.004)	pedal 1.1543 (1.1836)	ipfl 0.1778 (0.1679)
+Epoch: [54][0/414]	Time 2.962 (2.962)	Data 1.604 (1.604)	pedal 1.2042 (1.2042)	ipfl 0.1464 (0.1464)
+Epoch: [54][100/414]	Time 1.130 (1.155)	Data 0.000 (0.016)	pedal 1.2322 (1.1817)	ipfl 0.1822 (0.1649)
+Epoch: [54][200/414]	Time 1.145 (1.148)	Data 0.000 (0.008)	pedal 1.1622 (1.1816)	ipfl 0.1127 (0.1653)
+Epoch: [54][300/414]	Time 1.124 (1.145)	Data 0.000 (0.005)	pedal 1.1734 (1.1821)	ipfl 0.1938 (0.1671)
+Epoch: [54][400/414]	Time 1.143 (1.143)	Data 0.000 (0.004)	pedal 1.1702 (1.1825)	ipfl 0.1845 (0.1660)
+Epoch: [55][0/414]	Time 3.016 (3.016)	Data 1.685 (1.685)	pedal 1.2993 (1.2993)	ipfl 0.1509 (0.1509)
+Epoch: [55][100/414]	Time 1.142 (1.153)	Data 0.000 (0.017)	pedal 1.2677 (1.1826)	ipfl 0.1565 (0.1639)
+Epoch: [55][200/414]	Time 1.134 (1.148)	Data 0.000 (0.009)	pedal 1.2025 (1.1839)	ipfl 0.1883 (0.1645)
+Epoch: [55][300/414]	Time 1.120 (1.142)	Data 0.000 (0.006)	pedal 1.2552 (1.1876)	ipfl 0.1625 (0.1642)
+Epoch: [55][400/414]	Time 1.150 (1.140)	Data 0.000 (0.004)	pedal 1.0589 (1.1838)	ipfl 0.1848 (0.1648)
+56
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 50.53%
+CMC Scores first_match
+  top-1         70.06%
+  top-5         81.06%
+  top-10        83.98%
+  top-15        85.82%
+  top-20        86.94%
+Epoch: [56][0/414]	Time 2.235 (2.235)	Data 0.908 (0.908)	pedal 1.2150 (1.2150)	ipfl 0.1389 (0.1389)
+Epoch: [56][100/414]	Time 1.140 (1.143)	Data 0.000 (0.009)	pedal 1.2374 (1.1921)	ipfl 0.1771 (0.1614)
+Epoch: [56][200/414]	Time 1.143 (1.138)	Data 0.000 (0.005)	pedal 1.0608 (1.1843)	ipfl 0.1241 (0.1646)
+Epoch: [56][300/414]	Time 1.129 (1.135)	Data 0.000 (0.003)	pedal 1.2531 (1.1830)	ipfl 0.1964 (0.1643)
+Epoch: [56][400/414]	Time 1.122 (1.134)	Data 0.000 (0.002)	pedal 1.1981 (1.1844)	ipfl 0.1762 (0.1640)
+Epoch: [57][0/414]	Time 3.267 (3.267)	Data 1.961 (1.961)	pedal 1.2171 (1.2171)	ipfl 0.1801 (0.1801)
+Epoch: [57][100/414]	Time 1.163 (1.161)	Data 0.000 (0.020)	pedal 1.1603 (1.1860)	ipfl 0.1329 (0.1711)
+Epoch: [57][200/414]	Time 1.138 (1.154)	Data 0.000 (0.010)	pedal 1.1749 (1.1791)	ipfl 0.1431 (0.1685)
+Epoch: [57][300/414]	Time 1.134 (1.149)	Data 0.000 (0.007)	pedal 1.1640 (1.1800)	ipfl 0.1190 (0.1666)
+Epoch: [57][400/414]	Time 1.157 (1.146)	Data 0.000 (0.005)	pedal 1.1470 (1.1854)	ipfl 0.1253 (0.1655)
+Epoch: [58][0/414]	Time 2.987 (2.987)	Data 1.630 (1.630)	pedal 1.2207 (1.2207)	ipfl 0.1127 (0.1127)
+Epoch: [58][100/414]	Time 1.133 (1.154)	Data 0.000 (0.016)	pedal 1.2688 (1.1888)	ipfl 0.2090 (0.1693)
+Epoch: [58][200/414]	Time 1.132 (1.142)	Data 0.000 (0.008)	pedal 1.1043 (1.1834)	ipfl 0.1633 (0.1684)
+Epoch: [58][300/414]	Time 1.150 (1.142)	Data 0.000 (0.006)	pedal 1.1506 (1.1844)	ipfl 0.1102 (0.1676)
+Epoch: [58][400/414]	Time 1.129 (1.141)	Data 0.000 (0.004)	pedal 1.1784 (1.1849)	ipfl 0.1953 (0.1652)
+Epoch: [59][0/414]	Time 2.991 (2.991)	Data 1.637 (1.637)	pedal 1.3011 (1.3011)	ipfl 0.1696 (0.1696)
+Epoch: [59][100/414]	Time 1.162 (1.155)	Data 0.000 (0.016)	pedal 1.3373 (1.1820)	ipfl 0.2057 (0.1631)
+Epoch: [59][200/414]	Time 1.137 (1.149)	Data 0.000 (0.008)	pedal 1.2747 (1.1815)	ipfl 0.1959 (0.1626)
+Epoch: [59][300/414]	Time 1.163 (1.145)	Data 0.000 (0.006)	pedal 1.1111 (1.1838)	ipfl 0.1970 (0.1625)
+Epoch: [59][400/414]	Time 1.122 (1.144)	Data 0.000 (0.004)	pedal 1.1850 (1.1851)	ipfl 0.1696 (0.1645)
+Epoch: [60][0/414]	Time 3.217 (3.217)	Data 1.889 (1.889)	pedal 1.2581 (1.2581)	ipfl 0.1695 (0.1695)
+Epoch: [60][100/414]	Time 1.146 (1.165)	Data 0.000 (0.019)	pedal 1.1717 (1.1701)	ipfl 0.1589 (0.1647)
+Epoch: [60][200/414]	Time 1.130 (1.160)	Data 0.000 (0.010)	pedal 1.2504 (1.1783)	ipfl 0.1707 (0.1638)
+Epoch: [60][300/414]	Time 1.131 (1.155)	Data 0.000 (0.006)	pedal 1.2026 (1.1785)	ipfl 0.2198 (0.1639)
+Epoch: [60][400/414]	Time 1.148 (1.152)	Data 0.000 (0.005)	pedal 1.0882 (1.1821)	ipfl 0.1211 (0.1637)
+61
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 49.87%
+CMC Scores first_match
+  top-1         69.75%
+  top-5         80.07%
+  top-10        83.53%
+  top-15        85.23%
+  top-20        86.54%
+Epoch: [61][0/414]	Time 2.349 (2.349)	Data 1.103 (1.103)	pedal 1.2096 (1.2096)	ipfl 0.1822 (0.1822)
+Epoch: [61][100/414]	Time 1.122 (1.146)	Data 0.000 (0.011)	pedal 1.2582 (1.1773)	ipfl 0.2063 (0.1595)
+Epoch: [61][200/414]	Time 1.125 (1.139)	Data 0.000 (0.006)	pedal 1.2761 (1.1856)	ipfl 0.2453 (0.1643)
+Epoch: [61][300/414]	Time 1.132 (1.137)	Data 0.000 (0.004)	pedal 1.1194 (1.1800)	ipfl 0.1711 (0.1646)
+Epoch: [61][400/414]	Time 1.142 (1.135)	Data 0.000 (0.003)	pedal 1.1834 (1.1818)	ipfl 0.1935 (0.1635)
+Epoch: [62][0/414]	Time 3.181 (3.181)	Data 1.860 (1.860)	pedal 1.0972 (1.0972)	ipfl 0.1369 (0.1369)
+Epoch: [62][100/414]	Time 1.137 (1.155)	Data 0.000 (0.019)	pedal 1.2652 (1.1738)	ipfl 0.1907 (0.1572)
+Epoch: [62][200/414]	Time 1.152 (1.148)	Data 0.000 (0.009)	pedal 1.2029 (1.1786)	ipfl 0.1387 (0.1592)
+Epoch: [62][300/414]	Time 1.141 (1.143)	Data 0.000 (0.006)	pedal 1.1307 (1.1776)	ipfl 0.1405 (0.1623)
+Epoch: [62][400/414]	Time 1.118 (1.140)	Data 0.000 (0.005)	pedal 1.2414 (1.1807)	ipfl 0.1686 (0.1626)
+Epoch: [63][0/414]	Time 3.075 (3.075)	Data 1.700 (1.700)	pedal 1.1038 (1.1038)	ipfl 0.2293 (0.2293)
+Epoch: [63][100/414]	Time 1.132 (1.153)	Data 0.000 (0.017)	pedal 1.1975 (1.1873)	ipfl 0.1907 (0.1614)
+Epoch: [63][200/414]	Time 1.143 (1.146)	Data 0.000 (0.009)	pedal 1.2897 (1.1782)	ipfl 0.1853 (0.1619)
+Epoch: [63][300/414]	Time 1.120 (1.141)	Data 0.000 (0.006)	pedal 1.1813 (1.1818)	ipfl 0.2314 (0.1625)
+Epoch: [63][400/414]	Time 1.128 (1.137)	Data 0.000 (0.004)	pedal 1.2116 (1.1790)	ipfl 0.1497 (0.1626)
+Epoch: [64][0/414]	Time 3.396 (3.396)	Data 2.048 (2.048)	pedal 1.1847 (1.1847)	ipfl 0.1562 (0.1562)
+Epoch: [64][100/414]	Time 1.112 (1.152)	Data 0.000 (0.020)	pedal 1.2737 (1.1733)	ipfl 0.1669 (0.1587)
+Epoch: [64][200/414]	Time 1.129 (1.145)	Data 0.000 (0.010)	pedal 1.2005 (1.1779)	ipfl 0.1564 (0.1619)
+Epoch: [64][300/414]	Time 1.127 (1.140)	Data 0.000 (0.007)	pedal 1.0941 (1.1821)	ipfl 0.1146 (0.1638)
+Epoch: [64][400/414]	Time 1.137 (1.137)	Data 0.000 (0.005)	pedal 1.2712 (1.1801)	ipfl 0.1304 (0.1615)
+Epoch: [65][0/414]	Time 2.830 (2.830)	Data 1.498 (1.498)	pedal 1.0965 (1.0965)	ipfl 0.1534 (0.1534)
+Epoch: [65][100/414]	Time 1.125 (1.138)	Data 0.000 (0.015)	pedal 1.1832 (1.1753)	ipfl 0.1857 (0.1601)
+Epoch: [65][200/414]	Time 1.151 (1.138)	Data 0.000 (0.008)	pedal 1.2250 (1.1729)	ipfl 0.1653 (0.1621)
+Epoch: [65][300/414]	Time 1.125 (1.137)	Data 0.000 (0.005)	pedal 1.2305 (1.1771)	ipfl 0.2461 (0.1636)
+Epoch: [65][400/414]	Time 1.111 (1.134)	Data 0.000 (0.004)	pedal 1.2287 (1.1793)	ipfl 0.1323 (0.1624)
+66
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 50.56%
+CMC Scores first_match
+  top-1         70.20%
+  top-5         80.92%
+  top-10        84.29%
+  top-15        85.50%
+  top-20        86.89%
+Epoch: [66][0/414]	Time 2.352 (2.352)	Data 1.041 (1.041)	pedal 1.3207 (1.3207)	ipfl 0.1725 (0.1725)
+Epoch: [66][100/414]	Time 1.127 (1.141)	Data 0.000 (0.010)	pedal 1.2924 (1.1870)	ipfl 0.1681 (0.1568)
+Epoch: [66][200/414]	Time 1.119 (1.136)	Data 0.000 (0.005)	pedal 1.1427 (1.1858)	ipfl 0.1249 (0.1605)
+Epoch: [66][300/414]	Time 1.121 (1.134)	Data 0.000 (0.004)	pedal 1.1991 (1.1819)	ipfl 0.1814 (0.1616)
+Epoch: [66][400/414]	Time 1.127 (1.133)	Data 0.000 (0.003)	pedal 1.2719 (1.1781)	ipfl 0.1808 (0.1607)

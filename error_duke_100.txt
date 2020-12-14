@@ -1,0 +1,483 @@
+Namespace(batch_size=40, data='DUKE', debug=False, epochs=100, evaluate=False, exp_name='0001', gpu='0,1', height=384, iloss=1, lr=0.0001, margin=2, mm=0.1, momentum=0.9, net='PatchNetUn', num=2, ploss=2, pre_name='/home/wuzhi/wbq/PAUL/src/snapshot/MSMT17_PRE', print_freq=100, scale=5.0, seed=None, start_epoch=0, step=50, weight_decay=0.0001, width=128, workers=8)
+the class number of pretrained model is 4101
+0
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 45.64%
+CMC Scores first_match
+  top-1         65.75%
+  top-5         79.62%
+  top-10        83.66%
+  top-15        85.23%
+  top-20        86.71%
+DataParallel(
+  (module): PatchNetUn(
+    (backbone): ResNet(
+      (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+      (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      (layer1): Sequential(
+        (0): Bottleneck(
+          (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+          (downsample): Sequential(
+            (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): Bottleneck(
+          (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (2): Bottleneck(
+          (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+      )
+      (layer2): Sequential(
+        (0): Bottleneck(
+          (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+          (downsample): Sequential(
+            (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): Bottleneck(
+          (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (2): Bottleneck(
+          (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (3): Bottleneck(
+          (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+      )
+      (layer3): Sequential(
+        (0): Bottleneck(
+          (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+          (downsample): Sequential(
+            (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): Bottleneck(
+          (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (2): Bottleneck(
+          (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (3): Bottleneck(
+          (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (4): Bottleneck(
+          (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (5): Bottleneck(
+          (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+      )
+      (layer4): Sequential(
+        (0): Bottleneck(
+          (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+          (downsample): Sequential(
+            (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+        (2): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace)
+        )
+      )
+      (avgpool): AvgPool2d(kernel_size=(7, 7), stride=1, padding=0)
+    )
+    (new): ModuleList(
+      (down): ModuleList(
+        (0): Sequential(
+          (0): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): Sequential(
+          (0): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): Sequential(
+          (0): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (3): Sequential(
+          (0): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (4): Sequential(
+          (0): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (5): Sequential(
+          (0): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (fc_list): ModuleList(
+        (0): Linear(in_features=256, out_features=4101, bias=True)
+        (1): Linear(in_features=256, out_features=4101, bias=True)
+        (2): Linear(in_features=256, out_features=4101, bias=True)
+        (3): Linear(in_features=256, out_features=4101, bias=True)
+        (4): Linear(in_features=256, out_features=4101, bias=True)
+        (5): Linear(in_features=256, out_features=4101, bias=True)
+      )
+      (embedding): ModuleList(
+        (0): Linear(in_features=256, out_features=128, bias=True)
+        (1): Linear(in_features=256, out_features=128, bias=True)
+        (2): Linear(in_features=256, out_features=128, bias=True)
+        (3): Linear(in_features=256, out_features=128, bias=True)
+        (4): Linear(in_features=256, out_features=128, bias=True)
+        (5): Linear(in_features=256, out_features=128, bias=True)
+      )
+    )
+    (patch_proposal): PatchGenerator(
+      (localization): Sequential(
+        (0): Conv2d(2048, 4096, kernel_size=(3, 3), stride=(1, 1))
+        (1): BatchNorm2d(4096, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace)
+        (3): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      )
+      (fc_loc): Sequential(
+        (0): Linear(in_features=4096, out_features=512, bias=True)
+        (1): ReLU(inplace)
+        (2): Linear(in_features=512, out_features=36, bias=True)
+      )
+    )
+  )
+)
+SGD (
+Parameter Group 0
+    dampening: 0
+    initial_lr: 0.0001
+    lr: 0.0001
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+
+Parameter Group 1
+    dampening: 0
+    initial_lr: 0.0001
+    lr: 0.0001
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+
+Parameter Group 2
+    dampening: 0
+    initial_lr: 0.0001
+    lr: 0.0001
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+
+Parameter Group 3
+    dampening: 0
+    initial_lr: 0
+    lr: 0.0
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+initialize the centers
+initialization done
+Epoch: [0][0/414]	Time 7.496 (7.496)	Data 0.928 (0.928)	pedal 2.5990 (2.5990)	ipfl 0.3029 (0.3029)
+Epoch: [0][100/414]	Time 1.092 (1.149)	Data 0.000 (0.009)	pedal 2.5990 (2.5999)	ipfl 0.2353 (0.2206)
+Epoch: [0][200/414]	Time 1.115 (1.129)	Data 0.000 (0.005)	pedal 2.6674 (2.5763)	ipfl 0.2630 (0.2124)
+Epoch: [0][300/414]	Time 1.128 (1.127)	Data 0.000 (0.003)	pedal 2.6222 (2.5584)	ipfl 0.1291 (0.2047)
+Epoch: [0][400/414]	Time 1.136 (1.129)	Data 0.000 (0.002)	pedal 2.3163 (2.5411)	ipfl 0.1430 (0.1968)
+1
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 47.85%
+CMC Scores first_match
+  top-1         67.15%
+  top-5         81.01%
+  top-10        84.87%
+  top-15        86.89%
+  top-20        88.15%
+Epoch: [1][0/414]	Time 2.265 (2.265)	Data 0.999 (0.999)	pedal 2.3772 (2.3772)	ipfl 0.7757 (0.7757)
+Epoch: [1][100/414]	Time 1.155 (1.143)	Data 0.000 (0.010)	pedal 2.4281 (2.4690)	ipfl 0.7736 (0.7116)
+Epoch: [1][200/414]	Time 1.131 (1.142)	Data 0.000 (0.005)	pedal 2.5039 (2.4637)	ipfl 0.7365 (0.7124)
+Epoch: [1][300/414]	Time 1.148 (1.142)	Data 0.000 (0.003)	pedal 2.5809 (2.4527)	ipfl 0.7009 (0.7086)
+Epoch: [1][400/414]	Time 1.134 (1.140)	Data 0.000 (0.003)	pedal 2.3678 (2.4463)	ipfl 0.7254 (0.7081)
+Epoch: [2][0/414]	Time 2.937 (2.937)	Data 1.643 (1.643)	pedal 2.3950 (2.3950)	ipfl 0.6663 (0.6663)
+Epoch: [2][100/414]	Time 1.152 (1.167)	Data 0.000 (0.016)	pedal 2.4041 (2.4150)	ipfl 0.6617 (0.6732)
+Epoch: [2][200/414]	Time 1.149 (1.164)	Data 0.000 (0.008)	pedal 2.3141 (2.4037)	ipfl 0.6798 (0.6684)
+Epoch: [2][300/414]	Time 1.165 (1.160)	Data 0.000 (0.006)	pedal 2.3084 (2.3903)	ipfl 0.6418 (0.6631)
+Epoch: [2][400/414]	Time 1.175 (1.157)	Data 0.000 (0.004)	pedal 2.4006 (2.3817)	ipfl 0.5625 (0.6609)
+Epoch: [3][0/414]	Time 2.970 (2.970)	Data 1.627 (1.627)	pedal 2.2786 (2.2786)	ipfl 0.6283 (0.6283)
+Epoch: [3][100/414]	Time 1.149 (1.165)	Data 0.000 (0.016)	pedal 2.1028 (2.3503)	ipfl 0.5424 (0.6252)
+Epoch: [3][200/414]	Time 1.169 (1.159)	Data 0.000 (0.008)	pedal 2.2779 (2.3470)	ipfl 0.4981 (0.6245)
+Epoch: [3][300/414]	Time 1.154 (1.155)	Data 0.000 (0.006)	pedal 2.3599 (2.3395)	ipfl 0.5822 (0.6200)
+Epoch: [3][400/414]	Time 1.126 (1.152)	Data 0.000 (0.004)	pedal 2.1182 (2.3268)	ipfl 0.5331 (0.6160)
+4
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 50.37%
+CMC Scores first_match
+  top-1         69.39%
+  top-5         81.73%
+  top-10        85.28%
+  top-15        87.39%
+  top-20        88.38%
+Epoch: [4][0/414]	Time 2.341 (2.341)	Data 0.978 (0.978)	pedal 2.2858 (2.2858)	ipfl 0.6320 (0.6320)
+Epoch: [4][100/414]	Time 1.149 (1.144)	Data 0.000 (0.010)	pedal 2.3141 (2.2861)	ipfl 0.5835 (0.5794)
+Epoch: [4][200/414]	Time 1.133 (1.138)	Data 0.000 (0.005)	pedal 2.3415 (2.2826)	ipfl 0.6055 (0.5807)
+Epoch: [4][300/414]	Time 1.119 (1.138)	Data 0.000 (0.003)	pedal 2.3640 (2.2837)	ipfl 0.5463 (0.5803)
+Epoch: [4][400/414]	Time 1.143 (1.138)	Data 0.000 (0.003)	pedal 2.0974 (2.2784)	ipfl 0.5779 (0.5808)
+Epoch: [5][0/414]	Time 3.190 (3.190)	Data 1.881 (1.881)	pedal 2.0228 (2.0228)	ipfl 0.5253 (0.5253)
+Epoch: [5][100/414]	Time 1.139 (1.157)	Data 0.000 (0.019)	pedal 2.3571 (2.2472)	ipfl 0.6067 (0.5493)
+Epoch: [5][200/414]	Time 1.132 (1.152)	Data 0.000 (0.009)	pedal 2.1109 (2.2503)	ipfl 0.4829 (0.5541)
+Epoch: [5][300/414]	Time 1.150 (1.149)	Data 0.000 (0.006)	pedal 2.3619 (2.2395)	ipfl 0.5172 (0.5504)
+Epoch: [5][400/414]	Time 1.126 (1.146)	Data 0.000 (0.005)	pedal 2.2180 (2.2326)	ipfl 0.5650 (0.5493)
+Epoch: [6][0/414]	Time 2.904 (2.904)	Data 1.543 (1.543)	pedal 2.0403 (2.0403)	ipfl 0.5295 (0.5295)
+Epoch: [6][100/414]	Time 1.139 (1.158)	Data 0.000 (0.015)	pedal 2.1144 (2.2112)	ipfl 0.5784 (0.5261)
+Epoch: [6][200/414]	Time 1.125 (1.154)	Data 0.000 (0.008)	pedal 2.2927 (2.1875)	ipfl 0.5786 (0.5178)
+Epoch: [6][300/414]	Time 1.134 (1.150)	Data 0.000 (0.005)	pedal 2.0322 (2.1869)	ipfl 0.4870 (0.5219)
+Epoch: [6][400/414]	Time 1.117 (1.147)	Data 0.000 (0.004)	pedal 2.1320 (2.1832)	ipfl 0.5972 (0.5193)
+7
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 51.36%
+CMC Scores first_match
+  top-1         69.93%
+  top-5         81.42%
+  top-10        84.96%
+  top-15        86.98%
+  top-20        88.33%
+Epoch: [7][0/414]	Time 2.316 (2.316)	Data 0.988 (0.988)	pedal 2.1916 (2.1916)	ipfl 0.5053 (0.5053)
+Epoch: [7][100/414]	Time 1.121 (1.140)	Data 0.000 (0.010)	pedal 2.2036 (2.1458)	ipfl 0.6154 (0.4957)
+Epoch: [7][200/414]	Time 1.119 (1.136)	Data 0.000 (0.005)	pedal 2.1288 (2.1444)	ipfl 0.5402 (0.4959)
+Epoch: [7][300/414]	Time 1.139 (1.135)	Data 0.000 (0.003)	pedal 2.0421 (2.1410)	ipfl 0.4488 (0.4968)
+Epoch: [7][400/414]	Time 1.160 (1.136)	Data 0.000 (0.003)	pedal 2.1047 (2.1364)	ipfl 0.5452 (0.4948)
+Epoch: [8][0/414]	Time 3.143 (3.143)	Data 1.839 (1.839)	pedal 2.2218 (2.2218)	ipfl 0.4411 (0.4411)
+Epoch: [8][100/414]	Time 1.133 (1.161)	Data 0.000 (0.018)	pedal 2.2402 (2.1014)	ipfl 0.5823 (0.4692)
+Epoch: [8][200/414]	Time 1.148 (1.155)	Data 0.000 (0.009)	pedal 2.2125 (2.1041)	ipfl 0.5490 (0.4706)
+Epoch: [8][300/414]	Time 1.147 (1.153)	Data 0.000 (0.006)	pedal 2.1335 (2.0937)	ipfl 0.5484 (0.4731)
+Epoch: [8][400/414]	Time 1.153 (1.152)	Data 0.000 (0.005)	pedal 2.0056 (2.0883)	ipfl 0.3912 (0.4724)
+Epoch: [9][0/414]	Time 3.116 (3.116)	Data 1.820 (1.820)	pedal 2.1588 (2.1588)	ipfl 0.4188 (0.4188)
+Epoch: [9][100/414]	Time 1.136 (1.161)	Data 0.000 (0.018)	pedal 2.0868 (2.0511)	ipfl 0.5068 (0.4565)
+Epoch: [9][200/414]	Time 1.167 (1.155)	Data 0.000 (0.009)	pedal 2.0880 (2.0644)	ipfl 0.4596 (0.4589)
+Epoch: [9][300/414]	Time 1.146 (1.151)	Data 0.000 (0.006)	pedal 1.8489 (2.0530)	ipfl 0.4186 (0.4580)
+Epoch: [9][400/414]	Time 1.161 (1.148)	Data 0.000 (0.005)	pedal 1.9584 (2.0469)	ipfl 0.4029 (0.4564)
+10
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 51.61%
+CMC Scores first_match
+  top-1         69.61%
+  top-5         81.64%
+  top-10        85.23%
+  top-15        87.25%
+  top-20        88.55%
+Epoch: [10][0/414]	Time 2.399 (2.399)	Data 1.096 (1.096)	pedal 1.9494 (1.9494)	ipfl 0.4322 (0.4322)
+Epoch: [10][100/414]	Time 1.136 (1.143)	Data 0.000 (0.011)	pedal 2.2045 (2.0188)	ipfl 0.5266 (0.4367)
+Epoch: [10][200/414]	Time 1.140 (1.138)	Data 0.000 (0.006)	pedal 1.9897 (2.0152)	ipfl 0.4173 (0.4354)
+Epoch: [10][300/414]	Time 1.119 (1.135)	Data 0.000 (0.004)	pedal 2.0862 (2.0062)	ipfl 0.5567 (0.4343)
+Epoch: [10][400/414]	Time 1.128 (1.134)	Data 0.000 (0.003)	pedal 1.8973 (2.0013)	ipfl 0.3866 (0.4353)
+Epoch: [11][0/414]	Time 3.234 (3.234)	Data 1.926 (1.926)	pedal 1.9888 (1.9888)	ipfl 0.3860 (0.3860)
+Epoch: [11][100/414]	Time 1.123 (1.158)	Data 0.000 (0.019)	pedal 1.9785 (1.9705)	ipfl 0.4981 (0.4178)
+Epoch: [11][200/414]	Time 1.130 (1.147)	Data 0.000 (0.010)	pedal 2.0151 (1.9628)	ipfl 0.4630 (0.4159)
+Epoch: [11][300/414]	Time 1.152 (1.145)	Data 0.000 (0.007)	pedal 1.9018 (1.9582)	ipfl 0.4547 (0.4167)
+Epoch: [11][400/414]	Time 1.139 (1.142)	Data 0.000 (0.005)	pedal 1.8552 (1.9533)	ipfl 0.3553 (0.4167)
+Epoch: [12][0/414]	Time 3.195 (3.195)	Data 1.915 (1.915)	pedal 1.9464 (1.9464)	ipfl 0.4248 (0.4248)
+Epoch: [12][100/414]	Time 1.156 (1.159)	Data 0.000 (0.019)	pedal 2.0362 (1.9277)	ipfl 0.3851 (0.4069)
+Epoch: [12][200/414]	Time 1.166 (1.153)	Data 0.000 (0.010)	pedal 1.9984 (1.9232)	ipfl 0.3795 (0.4105)
+Epoch: [12][300/414]	Time 1.133 (1.148)	Data 0.000 (0.006)	pedal 1.9468 (1.9146)	ipfl 0.3875 (0.4079)
+Epoch: [12][400/414]	Time 1.130 (1.145)	Data 0.000 (0.005)	pedal 1.9513 (1.9118)	ipfl 0.3736 (0.4072)
+Epoch: [13][0/414]	Time 3.069 (3.069)	Data 1.756 (1.756)	pedal 1.7176 (1.7176)	ipfl 0.4129 (0.4129)
+Epoch: [13][100/414]	Time 1.133 (1.153)	Data 0.000 (0.018)	pedal 1.9628 (1.8884)	ipfl 0.4160 (0.4012)
+Epoch: [13][200/414]	Time 1.142 (1.148)	Data 0.000 (0.009)	pedal 1.7003 (1.8812)	ipfl 0.3718 (0.4016)
+Epoch: [13][300/414]	Time 1.149 (1.144)	Data 0.000 (0.006)	pedal 1.7893 (1.8768)	ipfl 0.3564 (0.4007)
+Epoch: [13][400/414]	Time 1.136 (1.140)	Data 0.000 (0.005)	pedal 1.6897 (1.8697)	ipfl 0.3566 (0.4014)
+Epoch: [14][0/414]	Time 3.268 (3.268)	Data 1.967 (1.967)	pedal 1.8823 (1.8823)	ipfl 0.3519 (0.3519)
+Epoch: [14][100/414]	Time 1.161 (1.156)	Data 0.000 (0.020)	pedal 1.8212 (1.8647)	ipfl 0.3791 (0.3959)
+Epoch: [14][200/414]	Time 1.095 (1.148)	Data 0.000 (0.010)	pedal 1.8887 (1.8483)	ipfl 0.3899 (0.3930)
+Epoch: [14][300/414]	Time 1.123 (1.144)	Data 0.000 (0.007)	pedal 1.7929 (1.8355)	ipfl 0.3879 (0.3899)
+Epoch: [14][400/414]	Time 1.128 (1.141)	Data 0.000 (0.005)	pedal 1.8457 (1.8298)	ipfl 0.3814 (0.3902)
+Epoch: [15][0/414]	Time 2.964 (2.964)	Data 1.678 (1.678)	pedal 1.9649 (1.9649)	ipfl 0.4460 (0.4460)
+Epoch: [15][100/414]	Time 1.134 (1.147)	Data 0.000 (0.017)	pedal 1.7792 (1.7941)	ipfl 0.4391 (0.3847)
+Epoch: [15][200/414]	Time 1.123 (1.141)	Data 0.000 (0.008)	pedal 1.7779 (1.7907)	ipfl 0.3236 (0.3850)
+Epoch: [15][300/414]	Time 1.142 (1.139)	Data 0.000 (0.006)	pedal 1.8501 (1.7884)	ipfl 0.3944 (0.3839)
+Epoch: [15][400/414]	Time 1.135 (1.136)	Data 0.000 (0.004)	pedal 1.9382 (1.7871)	ipfl 0.4006 (0.3850)
+16
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 52.49%
+CMC Scores first_match
+  top-1         70.74%
+  top-5         82.09%
+  top-10        85.50%
+  top-15        87.43%
+  top-20        88.60%
+Epoch: [16][0/414]	Time 2.247 (2.247)	Data 0.951 (0.951)	pedal 1.7537 (1.7537)	ipfl 0.4661 (0.4661)
+Epoch: [16][100/414]	Time 1.124 (1.135)	Data 0.000 (0.010)	pedal 1.7578 (1.7518)	ipfl 0.3630 (0.3768)
+Epoch: [16][200/414]	Time 1.133 (1.132)	Data 0.000 (0.005)	pedal 1.7020 (1.7553)	ipfl 0.3409 (0.3775)
+Epoch: [16][300/414]	Time 1.141 (1.131)	Data 0.000 (0.003)	pedal 1.8002 (1.7547)	ipfl 0.4817 (0.3801)
+Epoch: [16][400/414]	Time 1.117 (1.130)	Data 0.000 (0.003)	pedal 1.5888 (1.7518)	ipfl 0.3251 (0.3782)
+Epoch: [17][0/414]	Time 3.080 (3.080)	Data 1.768 (1.768)	pedal 1.8053 (1.8053)	ipfl 0.3928 (0.3928)
+Epoch: [17][100/414]	Time 1.129 (1.154)	Data 0.000 (0.018)	pedal 1.7422 (1.7304)	ipfl 0.3800 (0.3725)
+Epoch: [17][200/414]	Time 1.167 (1.147)	Data 0.000 (0.009)	pedal 1.6114 (1.7267)	ipfl 0.2895 (0.3714)
+Epoch: [17][300/414]	Time 1.134 (1.144)	Data 0.000 (0.006)	pedal 1.8180 (1.7260)	ipfl 0.4242 (0.3726)
+Epoch: [17][400/414]	Time 1.140 (1.141)	Data 0.000 (0.005)	pedal 1.5897 (1.7191)	ipfl 0.3122 (0.3726)
+Epoch: [18][0/414]	Time 3.139 (3.139)	Data 1.843 (1.843)	pedal 1.7543 (1.7543)	ipfl 0.3724 (0.3724)
+Epoch: [18][100/414]	Time 1.152 (1.155)	Data 0.000 (0.018)	pedal 1.7130 (1.7087)	ipfl 0.2973 (0.3735)
+Epoch: [18][200/414]	Time 1.127 (1.149)	Data 0.000 (0.009)	pedal 1.5679 (1.6991)	ipfl 0.3096 (0.3687)
+Epoch: [18][300/414]	Time 1.127 (1.143)	Data 0.000 (0.006)	pedal 1.6205 (1.6933)	ipfl 0.3892 (0.3689)
+Epoch: [18][400/414]	Time 1.118 (1.139)	Data 0.000 (0.005)	pedal 1.8000 (1.6879)	ipfl 0.3078 (0.3659)
+Epoch: [19][0/414]	Time 3.070 (3.070)	Data 1.763 (1.763)	pedal 1.6146 (1.6146)	ipfl 0.3506 (0.3506)
+Epoch: [19][100/414]	Time 1.133 (1.158)	Data 0.000 (0.018)	pedal 1.6746 (1.6512)	ipfl 0.3993 (0.3526)
+Epoch: [19][200/414]	Time 1.121 (1.148)	Data 0.000 (0.009)	pedal 1.7285 (1.6608)	ipfl 0.3236 (0.3572)
+Epoch: [19][300/414]	Time 1.108 (1.138)	Data 0.000 (0.006)	pedal 1.6997 (1.6584)	ipfl 0.3579 (0.3582)
+Epoch: [19][400/414]	Time 1.101 (1.132)	Data 0.000 (0.005)	pedal 1.8583 (1.6585)	ipfl 0.3855 (0.3593)
+Epoch: [20][0/414]	Time 3.123 (3.123)	Data 1.799 (1.799)	pedal 1.6335 (1.6335)	ipfl 0.3468 (0.3468)
+Epoch: [20][100/414]	Time 1.154 (1.150)	Data 0.000 (0.018)	pedal 1.5821 (1.6492)	ipfl 0.3207 (0.3554)
+Epoch: [20][200/414]	Time 1.120 (1.147)	Data 0.000 (0.009)	pedal 1.6566 (1.6398)	ipfl 0.3634 (0.3506)
+Epoch: [20][300/414]	Time 1.125 (1.142)	Data 0.000 (0.006)	pedal 1.6424 (1.6348)	ipfl 0.3783 (0.3498)
+Epoch: [20][400/414]	Time 1.118 (1.140)	Data 0.000 (0.005)	pedal 1.5981 (1.6311)	ipfl 0.3591 (0.3495)
+21
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 53.17%
+CMC Scores first_match
+  top-1         71.63%
+  top-5         82.81%
+  top-10        85.55%
+  top-15        87.61%
+  top-20        88.73%
+Epoch: [21][0/414]	Time 2.392 (2.392)	Data 1.109 (1.109)	pedal 1.5184 (1.5184)	ipfl 0.3382 (0.3382)
+Epoch: [21][100/414]	Time 1.142 (1.135)	Data 0.000 (0.011)	pedal 1.6146 (1.6100)	ipfl 0.3127 (0.3440)
+Epoch: [21][200/414]	Time 1.122 (1.133)	Data 0.000 (0.006)	pedal 1.6592 (1.6086)	ipfl 0.3728 (0.3463)
+Epoch: [21][300/414]	Time 1.130 (1.130)	Data 0.000 (0.004)	pedal 1.5814 (1.6107)	ipfl 0.3978 (0.3470)
+Epoch: [21][400/414]	Time 1.120 (1.130)	Data 0.000 (0.003)	pedal 1.5557 (1.6097)	ipfl 0.3136 (0.3448)
+Epoch: [22][0/414]	Time 2.983 (2.983)	Data 1.654 (1.654)	pedal 1.5681 (1.5681)	ipfl 0.3213 (0.3213)
+Epoch: [22][100/414]	Time 1.144 (1.150)	Data 0.000 (0.017)	pedal 1.5837 (1.5814)	ipfl 0.3289 (0.3309)
+Epoch: [22][200/414]	Time 1.129 (1.144)	Data 0.000 (0.008)	pedal 1.5184 (1.5850)	ipfl 0.3838 (0.3351)
+Epoch: [22][300/414]	Time 1.134 (1.141)	Data 0.000 (0.006)	pedal 1.6834 (1.5865)	ipfl 0.3799 (0.3354)
+Epoch: [22][400/414]	Time 1.113 (1.135)	Data 0.000 (0.004)	pedal 1.5336 (1.5855)	ipfl 0.3229 (0.3364)
+Epoch: [23][0/414]	Time 3.031 (3.031)	Data 1.668 (1.668)	pedal 1.5333 (1.5333)	ipfl 0.2890 (0.2890)
+Epoch: [23][100/414]	Time 1.144 (1.152)	Data 0.000 (0.017)	pedal 1.5646 (1.5719)	ipfl 0.3933 (0.3264)
+Epoch: [23][200/414]	Time 1.158 (1.146)	Data 0.000 (0.008)	pedal 1.6307 (1.5673)	ipfl 0.2983 (0.3274)
+Epoch: [23][300/414]	Time 1.153 (1.140)	Data 0.000 (0.006)	pedal 1.5761 (1.5689)	ipfl 0.3253 (0.3279)
+Epoch: [23][400/414]	Time 1.120 (1.137)	Data 0.000 (0.004)	pedal 1.4253 (1.5675)	ipfl 0.2552 (0.3296)
+Epoch: [24][0/414]	Time 3.140 (3.140)	Data 1.864 (1.864)	pedal 1.4818 (1.4818)	ipfl 0.2897 (0.2897)
+Epoch: [24][100/414]	Time 1.166 (1.151)	Data 0.000 (0.019)	pedal 1.7660 (1.5571)	ipfl 0.2881 (0.3224)
+Epoch: [24][200/414]	Time 1.145 (1.145)	Data 0.000 (0.009)	pedal 1.5225 (1.5519)	ipfl 0.3067 (0.3234)
+Epoch: [24][300/414]	Time 1.134 (1.140)	Data 0.000 (0.006)	pedal 1.4745 (1.5488)	ipfl 0.2829 (0.3237)
+Epoch: [24][400/414]	Time 1.135 (1.138)	Data 0.000 (0.005)	pedal 1.4919 (1.5479)	ipfl 0.2725 (0.3225)
+Epoch: [25][0/414]	Time 3.063 (3.063)	Data 1.709 (1.709)	pedal 1.6756 (1.6756)	ipfl 0.3947 (0.3947)
+Epoch: [25][100/414]	Time 1.143 (1.153)	Data 0.000 (0.017)	pedal 1.5898 (1.5390)	ipfl 0.3491 (0.3221)
+Epoch: [25][200/414]	Time 1.130 (1.148)	Data 0.000 (0.009)	pedal 1.5490 (1.5412)	ipfl 0.3040 (0.3204)
+Epoch: [25][300/414]	Time 1.144 (1.144)	Data 0.000 (0.006)	pedal 1.5160 (1.5330)	ipfl 0.2878 (0.3170)
+Epoch: [25][400/414]	Time 1.116 (1.140)	Data 0.000 (0.004)	pedal 1.9281 (1.5323)	ipfl 0.4474 (0.3155)
+26
+(2228, 1536) (2228, 1) (2228, 1)
+(17661, 1536) (17661, 1) (17661, 1)
+Mean AP: 53.44%
+CMC Scores first_match
+  top-1         71.72%
+  top-5         82.59%
+  top-10        85.86%
+  top-15        87.66%
+  top-20        88.96%

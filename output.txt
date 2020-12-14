@@ -1,0 +1,13 @@
+nohup: ignoring input
+/home/wuzhi/anaconda3/envs/PAUL/lib/python3.7/site-packages/scipy/io/matlab/miobase.py:414: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  arr[empties] = ' '
+Traceback (most recent call last):
+  File "unsupervised_train.py", line 330, in <module>
+    main()
+  File "unsupervised_train.py", line 179, in main
+    train(train_loader, model,model_ema, pv_criterion, pc_criterion, optimizer, centers, patch_centers, epoch)
+  File "unsupervised_train.py", line 220, in train
+    patch_agent, position = patch_centers.get_soft_label(path, feat_list_ema)
+  File "../loss/smooth.py", line 57, in get_soft_label
+    agent = torch.stack(self.agent, dim=1).cuda()
+RuntimeError: CUDA error: out of memory
